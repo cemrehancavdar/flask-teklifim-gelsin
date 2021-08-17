@@ -132,3 +132,53 @@ def get_reasons():
         print(e)
         response = {"status": "fail", "message": "Try again"}
         return make_response(jsonify(response)), 500
+
+
+@app_blueprint.post("/banks")
+@jwt_required()
+def post_bank():
+    post_data = request.get_json()
+    print(post_data)
+    try:
+        bank = Bank(
+            name=post_data.get("name"),
+        )
+        db.session.add(bank)
+        db.session.commit()
+
+        response = {
+            "status": "success",
+            "message": "Kayıt yapıldı.",
+        }
+
+        return make_response(jsonify(response)), 201
+
+    except Exception as e:
+        print(e)
+        response = {"status": "fail", "message": "Try again"}
+        return make_response(jsonify(response)), 500
+
+
+@app_blueprint.post("/reasons")
+@jwt_required()
+def post_reasons():
+    post_data = request.get_json()
+    print(post_data)
+    try:
+        reason = Reason(
+            name=post_data.get("name"),
+        )
+        db.session.add(reason)
+        db.session.commit()
+
+        response = {
+            "status": "success",
+            "message": "Kayıt yapıldı.",
+        }
+
+        return make_response(jsonify(response)), 201
+
+    except Exception as e:
+        print(e)
+        response = {"status": "fail", "message": "Try again"}
+        return make_response(jsonify(response)), 500

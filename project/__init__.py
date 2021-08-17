@@ -5,7 +5,7 @@ from flask_bcrypt import Bcrypt
 from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 
-postgres_local_base = "postgresql://igbmjgqxybjhty:d2355a966c9cd710af1bbc73f9b7634b32ddc3a63613c973f400c6b499a4da74@ec2-52-209-171-51.eu-west-1.compute.amazonaws.com:5432/d2kmeb77ofeojg"
+postgres_local_base = ""
 
 
 
